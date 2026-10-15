@@ -1,0 +1,61 @@
+✔ independent board facts: capture-not-attack (9.874045ms)
+✔ independent board facts: connect-distinct (2.663551ms)
+✔ independent board facts: same-string-not-two (0.672447ms)
+✔ independent board facts: diagonal-potential (10.957763ms)
+✔ independent board facts: blocked-jump (9.556144ms)
+✔ independent board facts: suicide-abstain (1.52368ms)
+✔ independent board facts: occupied-abstain (0.142752ms)
+✔ independent board facts: own-development-competition (6.830812ms)
+✔ color swap preserves capture/connection facts for all unoccupied legal controls (2.15765ms)
+✔ 100 deterministic legal moves agree with independent replay on captures (165.503113ms)
+✖ REGRESSION: played purpose survives the actual 18k transport prefix (40.991182ms)
+✖ REGRESSION: materially inferior local candidate cannot be called near-best (0.909269ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 10
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1721.736802
+
+✖ failing tests:
+
+test at review/pr61/audit.test.mjs:39:1
+✖ REGRESSION: played purpose survives the actual 18k transport prefix (40.991182ms)
+  AssertionError [ERR_ASSERTION]: Recognized played-purpose hypothesis and counter-evidence are lost behind candidate effect inventories
+      at TestContext.<anonymous> (file:///workspace/scratch/2c5d02256124/GoAgent/review/pr61/audit.test.mjs:42:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at review/pr61/audit.test.mjs:44:1
+✖ REGRESSION: materially inferior local candidate cannot be called near-best (0.909269ms)
+  AssertionError [ERR_ASSERTION]: A significant loss on either usable metric must not become affirmative near-best evidence
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///workspace/scratch/2c5d02256124/GoAgent/review/pr61/audit.test.mjs:48:9)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
